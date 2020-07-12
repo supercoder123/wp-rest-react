@@ -1,0 +1,11 @@
+// export const  = ''
+export const FETCH_POSTS = "FETCH_POSTS";
+export const FETCH_CATEGORIES = "FETCH_CATEGORIES";
+export const LOADING_START = "LOADING_START";
+export const LOADING_END = "LOADING_END";
+export const CREATE_CATEGORY_MAP = "CREATE_CATEGORY_MAP";
+export const FETCH_POSTS_BY_CATEGORY = "FETCH_POSTS_BY_CATEGORY";
+export const SET_ARTICLE = "SET_ARTICLE";
+export const REDIRECT = 'REDIRECT'
+// export const FETCH_CATEGORIES = ''
+// export const  = ''

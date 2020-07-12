@@ -1,0 +1,25 @@
+.actionButton {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+}
+.resultBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+  word-break: break-word;
+  .content {
+    padding-right: 20px;
+  }
+  .title {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .excerpt {
+    font-size: 12px;
+    color: #a5a5a5;
+  }
+}

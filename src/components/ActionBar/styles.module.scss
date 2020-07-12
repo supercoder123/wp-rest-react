@@ -1,0 +1,15 @@
+.actionBar {
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  .container {
+    display: flex;
+    align-items: center;
+    .arrow {
+      font-size: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+      padding-bottom: 10px;
+      padding-left: 15px;
+    }
+  }
+}
