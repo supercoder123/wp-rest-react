@@ -27,7 +27,7 @@ function ActionButton({ type, setArticle, ...props }) {
       </div>
     );
   } else {
-    const { title, excerpt, slug, history, content } = props;
+    const { title, excerpt, slug, history } = props;
     // for showing title with excerpt
     ui = (
       <div

@@ -1,11 +1,12 @@
-import React from "react"
-import ActionButton from "../ActionButton"
-import styles from "./styles.module.scss"
+import React from "react";
+import ActionButton from "../ActionButton";
+import styles from "./styles.module.scss";
+import { SectionHeader, OuterMargin } from '../../shared/components/common-components';
 
 const CategoriesList = ({ categories }) => {
   return (
-    <div className={styles.categories}>
-      <p className={styles.header}>Browse Categories</p>
+    <OuterMargin>
+      <SectionHeader className={styles.header}>Browse Categories</SectionHeader>
       {categories.map(({ name, count, ...otherDetails }) =>
         count > 1 ? (
           <ActionButton
@@ -16,8 +17,8 @@ const CategoriesList = ({ categories }) => {
           />
         ) : null
       )}
-    </div>
-  )
-}
+    </OuterMargin>
+  );
+};
 
-export default CategoriesList
+export default CategoriesList;

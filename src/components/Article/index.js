@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { connect } from "react-redux";
 import { fetchPostsByIdentifier } from "../../actions/action-creators";
 import { Redirect } from "react-router-dom";
+import { Background } from "../../shared/components/common-components";
 
 class Article extends React.Component {
   componentDidMount() {
@@ -32,13 +33,13 @@ class Article extends React.Component {
     }
 
     return (
-      <div>
+      <Background>
         <ActionBar backRoute={"/"} />
         <article styles={styles.article}>
           <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
           <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </article>
-      </div>
+      </Background>
     );
   }
 }

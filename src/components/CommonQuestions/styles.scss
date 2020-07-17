@@ -7,4 +7,10 @@
 .questionContainer {
   display: flex;
   overflow-x: scroll;
+ 
+}
+
+.questionContainer::-webkit-scrollbar {
+  height: 5px;
+  display: none;
 }

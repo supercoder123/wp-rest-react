@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import ActionBar from "../../components/ActionBar";
 import ListComponent from "../../components/ListComponent";
 import { postsByCategory } from "../../actions/action-creators";
+import { Background } from "../../shared/components/common-components";
+
 
 class PageComponent extends Component {
   componentDidMount() {
-    const { match, postsByCategory, postsByCategories } = this.props;
-    if (postsByCategories.length === 0) {
+    const { match, postsByCategory } = this.props;
       postsByCategory(match.params.slug);
-    }
   }
 
   render() {
@@ -22,7 +22,7 @@ class PageComponent extends Component {
     }
 
     return (
-      <div>
+      <Background>
         <ActionBar
           header={
             postsByCategories.length > 0 &&
@@ -33,7 +33,7 @@ class PageComponent extends Component {
         {postsByCategories.length > 0 && (
           <ListComponent list={postsByCategories} />
         )}
-      </div>
+      </Background>
     );
   }
 }
