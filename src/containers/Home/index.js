@@ -5,11 +5,13 @@ import { CommonQuestions } from "../../components/CommonQuestions";
 import CategoriesList from "../../components/CategoriesList";
 import { fetchPosts, fetchCategories } from "../../actions/action-creators";
 import styled from "styled-components/macro";
+import { SpinnerOverlay, SpinnerContainer } from "../../shared/components/common-components";
 
 const Container = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 20px;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
@@ -23,7 +25,15 @@ class Home extends Component {
   }
 
   render() {
-    const { commonQuestions, categories } = this.props;
+    const { commonQuestions, categories, loading } = this.props;
+
+    if (loading) {
+      return (
+        <SpinnerOverlay>
+          <SpinnerContainer />
+        </SpinnerOverlay>
+      );
+    }
 
     return (
       <>
@@ -45,6 +55,7 @@ const mapStateToProps = (state) => {
   return {
     commonQuestions: state.postData.posts,
     categories: state.postData.categories,
+    loading: state.loading.requestsInProgress.length === 0 ? false : true
   };
 };
 

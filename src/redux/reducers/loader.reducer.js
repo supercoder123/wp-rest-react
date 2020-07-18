@@ -1,18 +1,28 @@
-import { LOADING_START, LOADING_END } from "../../actions/constants"
+import { LOADING_START, LOADING_END } from "../../actions/constants";
 
-const loading = false
+const initialState = {
+  requestsInProgress: [],
+};
 
-function loaderReducer(state = loading, action) {
+function loaderReducer(state = initialState, action) {
   switch (action.type) {
     case LOADING_START:
-      return true
+      return {
+        ...state,
+        requestsInProgress: [...state.requestsInProgress, action.payload],
+      };
 
     case LOADING_END:
-      return false
+      return {
+        ...state,
+        requestsInProgress: state.requestsInProgress.filter(
+          (requestName) => requestName !== action.payload
+        ),
+      };
 
     default:
-      return state
+      return state;
   }
 }
 
-export default loaderReducer
+export default loaderReducer;

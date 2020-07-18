@@ -13,7 +13,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/market-talk/category/:slug" component={PageComponent} />
+          <Route
+            exact
+            path="/market-talk/category/:slug"
+            component={PageComponent}
+          />
           <Route exact path="/market-talk/:slug" component={Article} />
           <Route path="/market-talk/" component={Home} />
           <Route exact path="*" component={Home} />
@@ -24,14 +28,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { loading: state.loading };
+  return {
+    loading: state.loading.requestsInProgress.length === 0 ? false : true,
+  };
 };
 
 export default connect(mapStateToProps, null)(App);
-
-// state = {
-//   posts: [],
-//   categories: [],
-//   search: [],
-//   commonQuestions: [],
-// }

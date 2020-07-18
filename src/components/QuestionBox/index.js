@@ -18,7 +18,7 @@ const Container = styled.div`
 const QuestionCategory = styled.div`
   font-size: 12px;
   color: #555;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 `;
 
 const Question = styled.div`

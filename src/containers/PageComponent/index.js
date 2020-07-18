@@ -5,20 +5,27 @@ import PropTypes from "prop-types";
 import ActionBar from "../../components/ActionBar";
 import ListComponent from "../../components/ListComponent";
 import { postsByCategory } from "../../actions/action-creators";
-import { Background } from "../../shared/components/common-components";
-
+import {
+  Background,
+  SpinnerContainer,
+  SpinnerOverlay,
+} from "../../shared/components/common-components";
 
 class PageComponent extends Component {
   componentDidMount() {
     const { match, postsByCategory } = this.props;
-      postsByCategory(match.params.slug);
+    postsByCategory(match.params.slug);
   }
 
   render() {
     const { postsByCategories, loading, categoryMap } = this.props;
 
     if (loading) {
-      return <div>loading...</div>;
+      return (
+        <SpinnerOverlay>
+          <SpinnerContainer />
+        </SpinnerOverlay>
+      );
     }
 
     return (
@@ -45,7 +52,7 @@ PageComponent.propTypes = {
 const mapStateToProps = (state) => {
   return {
     postsByCategories: state.postData.postsByCategory,
-    loading: state.loading,
+    loading: state.loading.requestsInProgress.length === 0 ? false : true,
     categoryMap: state.postData.categoryMap,
   };
 };

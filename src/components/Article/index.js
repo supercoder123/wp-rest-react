@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { connect } from "react-redux";
 import { fetchPostsByIdentifier } from "../../actions/action-creators";
 import { Redirect } from "react-router-dom";
-import { Background } from "../../shared/components/common-components";
+import { Background, SpinnerOverlay, SpinnerContainer } from "../../shared/components/common-components";
 
 class Article extends React.Component {
   componentDidMount() {
@@ -29,7 +29,11 @@ class Article extends React.Component {
     }
 
     if (loading) {
-      return <div>loading...</div>;
+      return (
+        <SpinnerOverlay>
+          <SpinnerContainer />
+        </SpinnerOverlay>
+      );
     }
 
     return (
@@ -47,7 +51,7 @@ class Article extends React.Component {
 const mapStateToProps = (state) => ({
   articleData: state.article,
   redirectToHome: state.redirectToHome,
-  loading: state.loading,
+  loading: state.loading.requestsInProgress.length === 0 ? false : true,
 });
 
 const mapDispatchToProps = {
